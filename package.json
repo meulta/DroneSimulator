@@ -1,0 +1,15 @@
+{
+  "name": "dronesimulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "meulta",
+  "license": "ISC",
+  "devDependencies": {
+    "tsc": "^1.20150623.0",
+    "tsd": "^0.6.5"
+  }
+}

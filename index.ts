@@ -215,13 +215,13 @@ var createScene = function () {
 		if (!updating) return;
 
         body.physicsImpostor.setAngularVelocity(rotation);
-        body.applyImpulse(impulse, body.position);
+        var matrix = new BABYLON.Matrix();
+        var rotationQ = body.rotationQuaternion;
+        if(!rotationQ)
+            rotationQ = new BABYLON.Quaternion(0,0,0,0);
 
-       
-        // blade1.applyImpulse(impulse, blade1.position);
-        // blade2.applyImpulse(impulse, blade2.position);
-        // blade3.applyImpulse(impulse, blade3.position);
-        // blade4.applyImpulse(impulse, blade4.position);
+        rotationQ.toRotationMatrix(matrix);
+        body.applyImpulse(BABYLON.Vector3.TransformNormal(impulse, matrix), body.position);
     }
 	
 	scene.registerBeforeRender(update);
